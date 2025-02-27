@@ -1,0 +1,12 @@
+{
+  "name": "astronaut2",
+  "description": "A set of test NFTs for the Solana blockchain",
+  "image": "https://anotherearth.netlify.app/astro2.jpg",
+  "external_url": "https://anotherearth.netlify.app",
+  "properties": {
+    "files": [{ "uri": "https://anotherearth.netlify.app/astro2.jpg", "type": "image/png" }],
+    "category": "image"
+  },
+  "seller_fee_basis_points": 500,
+  "attributes": [{ "trait_type": "Number", "value": "2" }]
+}
