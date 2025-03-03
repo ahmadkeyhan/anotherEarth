@@ -1,0 +1,13 @@
+{
+    "name": "astronaut3",
+    "description": "An astronaut in quest to find another earth!",
+    "image": "https://anotherearth.netlify.app/astro4.jpg",
+    "external_url": "https://anotherearth.netlify.app",
+    "properties": {
+      "files": [{ "uri": "https://anotherearth.netlify.app/astro4.jpg", "type": "image/png" }],
+      "category": "image"
+    },
+    "seller_fee_basis_points": 500,
+    "attributes": [{ "trait_type": "Number", "value": "4" }]
+  }
+  

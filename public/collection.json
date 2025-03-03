@@ -1,11 +1,11 @@
 {
   "name": "another earth",
   "symbol": "astronauts",
-  "image": "collection.png",
+  "image": "https://anotherearth.netlify.app/collection.jpg",
   "properties": {
     "files": [
       {
-        "uri": "collection.png",
+        "uri": "https://anotherearth.netlify.app/collection.jpg",
         "type": "image/png"
       }
     ],
@@ -17,7 +17,7 @@
       }
     ]
   },
-  "description": "A Set of test NFT's for the Solana Blockchain",
+  "description": "An on-chain quest to find another earth, before it's too late!",
   "seller_fee_basis_points": 500,
     "attributes": []
 }
