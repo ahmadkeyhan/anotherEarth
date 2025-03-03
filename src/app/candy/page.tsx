@@ -5,9 +5,8 @@ import { walletAdapterIdentity } from "@metaplex-foundation/umi-signer-wallet-ad
 import {
   mplCandyMachine,
   fetchCandyMachine,
-  safeFetchCandyGuard, 
-  mintV1,
-  DefaultGuardSetMintArgs
+  safeFetchCandyGuard,
+  mintV1
 } from "@metaplex-foundation/mpl-core-candy-machine";
 import { 
   publicKey as pubKey, 
@@ -26,37 +25,16 @@ export default function Candy() {
   // const [cgId, setCgId] = useState('')
   const [allowed, setAllowed] = useState(true)
   const [mintLoading, setMintLoading] = useState(false)
-  
+  const candyMachineId = process.env.NEXT_PUBLIC_CANDYMACHINE_ID
 
   const wallet = useWallet()
   const umi = useUmiStore().umi
   umi.use(walletAdapterIdentity(wallet))
-  // const umi = umiWithCurrentWalletAdapter()
   umi.use(mplCandyMachine())
   
-  // let mintArgs: Partial<DefaultGuardSetMintArgs> = {};
-
-  // const signerUmi = useUmiStore.getState().umi
-  // const currentWallet = useUmiStore.getState().signer
-  // if (!currentWallet) throw new Error('No wallet selected')
-  // return signerUmi.use(signerIdentity(currentWallet))
-  
-  const candyMachineId = 'GJtZLkwxxDcrHuLKRQ39aE7ZMj8gwQ7vrH2wKJJCz4QU'
-  
-  useEffect(() => {
-
-    const fetchCM = async () => {
-      const candyMachine = await fetchCandyMachine(umi, pubKey(candyMachineId))
-      console.log(candyMachine)
-      setCmId(candyMachine.publicKey)
-      setCollectionMint(candyMachine.collectionMint)
-      setMintAuth(candyMachine.mintAuthority)
-      setItemsRedeemed(Number(candyMachine.itemsRedeemed))
-      setItemsLoaded(candyMachine.itemsLoaded)
-      if (Number(candyMachine.itemsRedeemed) === candyMachine.itemsLoaded) setAllowed(false)
-      const mintAuth = (candyMachine.mintAuthority)
-      const candyGuard = await safeFetchCandyGuard(umi, pubKey(mintAuth))
-      // setCgId(candyGuard!.publicKey)
+  const fetchCG = async (mintAuth: string) => {
+    console.log(mintAuth)
+    await safeFetchCandyGuard(umi, pubKey(mintAuth)).then(async (candyGuard) => {
       console.log(candyGuard)
       // fetch the current slot and read the blocktime
       const slot = await umi.rpc.getSlot();
@@ -70,18 +48,28 @@ export default function Candy() {
               setAllowed(false)
         } else {console.log('valid time')}
       }
+      const solPay = unwrapOption(candyGuard!.guards.solPayment)
+    })
+  }
 
-      // add solPayment mintArgs
-      // const solPayment = unwrapOption(candyGuard!.guards.solPayment)
-      // if (solPayment) {
-      //   mintArgs.solPayment = some({
-      //     destination: solPayment.destination,
-      //   });
-      // }
+  const fetchCM = async () => {
+    await fetchCandyMachine(umi, pubKey(candyMachineId!)).then((candyMachine) => {
+      console.log(candyMachine)
+      setCmId(candyMachine.publicKey)
+      setCollectionMint(candyMachine.collectionMint)
+      setMintAuth(candyMachine.mintAuthority)
+      setItemsRedeemed(Number(candyMachine.itemsRedeemed))
+      setItemsLoaded(candyMachine.itemsLoaded)
+      if (Number(candyMachine.itemsRedeemed) === candyMachine.itemsLoaded) setAllowed(false)
+      // const mintAuth = (candyMachine.mintAuthority)
+      fetchCG(candyMachine.mintAuthority)
+    })
+  }
 
-    }
+  useEffect(() => {
     fetchCM()
   },[])
+
   const mintOne = async () => {
     try {
       setMintLoading(true)
@@ -93,7 +81,7 @@ export default function Candy() {
         candyGuard: pubKey(mintAuth),
         mintArgs: {
           //Remember to change this to parameter!
-          solPayment: some({destination: pubKey("AViY9ALuk3zEBxjn6DUbCG6oLo14HL9HFiiXyWea2KDN")})
+          solPayment: some({destination: pubKey("4axXmAoxAcV4QNHr2YYxmNXsgyahu2syDZ2XzNz9dgb8")})
         }
       }).sendAndConfirm(umi).then(() => {
         setMintLoading(false)
