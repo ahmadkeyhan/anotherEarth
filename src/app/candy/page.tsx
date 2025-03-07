@@ -1,7 +1,7 @@
 "use client"
-import Header from "@/components/header";
-import FetchCandyMachine  from "./fetchCandyMachine";
-import MintOneButton from "./mintOne";
+import Header from "@/components/ui/header";
+import FetchCandyMachine  from "../../components/mpl/fetchCandyMachine";
+import MintOneButton from "../../components/mpl/mintOne";
 
 export default function Candy() {
   const candyMachineId = process.env.NEXT_PUBLIC_CANDYMACHINE_ID
