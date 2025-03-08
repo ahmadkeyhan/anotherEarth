@@ -21,7 +21,7 @@ const Header = () => {
     (async () => {
       if (publicKey) {
         const balanceLamport = await connection.getBalance(publicKey)
-        setBalance(Math.round(balanceLamport*1000/LAMPORTS_PER_SOL)/1000)
+        setBalance(Math.round(balanceLamport*100/LAMPORTS_PER_SOL)/100)
         }
     })()
   }, [publicKey,connection])
