@@ -21,7 +21,7 @@ export default function FetchAssets() {
 
     useEffect(() => {
         fetchAssets()
-    })
+    },[])
 
     return {assets,collectionId}
 }
