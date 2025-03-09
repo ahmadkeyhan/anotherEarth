@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import ThemeSwitcher from "./themeSwitcher" 
-import { Menu, X, Rocket } from "lucide-react"
+import { Menu, X, Rocket, Wallet } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/uiUtils"
 import dynamic from "next/dynamic";
@@ -82,7 +82,7 @@ export function Navbar() {
         {/* Right side buttons */}
         <div className="flex items-center gap-2">
           <ThemeSwitcher />
-          <div className="hidden sm:flex sm:gap-1 sm:items-center">
+          <div className="hidden sm:flex sm:gap-2 sm:items-center">
             <p className="text-xs">{balance} sol</p>
             <WalletMultiButtonDynamic 
                 style={{width: '8.5rem',
@@ -94,11 +94,17 @@ export function Navbar() {
                     alignItems: 'center',
                     backgroundImage: 'linear-gradient(to right,#a855f7 , #3b82f6)'
                 }}>
-                <p className={orbitron.className}>
                 {publicKey? 
-                    `${publicKey.toString().slice(0,8)}...` :
-                    'Connect wallet'}
-                </p>
+                        <p className={orbitron.className}>
+                            {`${publicKey.toString().slice(0,8)}...`}
+                        </p> :
+                        <div className="flex justify-around w-full items-center">
+                            <Wallet />
+                            <p className={orbitron.className}>
+                                Connect
+                            </p>
+                        </div>
+                    } 
             </WalletMultiButtonDynamic>
           </div>
 
@@ -178,7 +184,7 @@ export function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 mt-4 border-t border-primary/10 flex items-center gap-1">
+            <div className="pt-4 mt-4 border-t border-primary/10 flex items-center gap-2">
                 <p className="text-xs">{balance} sol</p>    
                 <WalletMultiButtonDynamic 
                     style={{width: '8.5rem',
@@ -190,11 +196,17 @@ export function Navbar() {
                         alignItems: 'center',
                         backgroundImage: 'linear-gradient(to right,#a855f7 , #3b82f6)'
                     }}>
-                    <p className={orbitron.className}>
                     {publicKey? 
-                        `${publicKey.toString().slice(0,8)}...` :
-                        'Connect wallet'}
-                    </p>
+                        <p className={orbitron.className}>
+                            {`${publicKey.toString().slice(0,8)}...`}
+                        </p> :
+                        <div className="flex justify-around w-full items-center">
+                            <Wallet />
+                            <p className={orbitron.className}>
+                                Connect
+                            </p>
+                        </div>
+                    } 
                 </WalletMultiButtonDynamic>
             </div>
           </div>
