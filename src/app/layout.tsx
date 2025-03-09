@@ -5,6 +5,7 @@ import { Orbitron } from "next/font/google";
 import "./globals.css";
 import { UmiProvider } from "@/providers/umiProvider";
 import Header from "@/components/ui/header";
+import { Navbar } from "@/components/ui/navbar";
 
 const orbitron = Orbitron({ subsets: ["latin"] });
 
@@ -24,7 +25,8 @@ export default function RootLayout({
         <html lang="en">
           <body className={orbitron.className}>
             <ThemeProviderWrapper>
-              <Header />
+              {/* <Header /> */}
+              <Navbar />
               <main className="flex min-h-screen flex-col items-center justify-between p-12">
                 {children}
               </main>
