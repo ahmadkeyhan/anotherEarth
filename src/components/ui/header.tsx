@@ -12,6 +12,9 @@ const WalletMultiButtonDynamic = dynamic(
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Orbitron } from "next/font/google";
+
+const orbitron = Orbitron({ subsets: ["latin"] });
 
 const Header = () => {
   const [balance, setBalance] = useState(0)
@@ -38,10 +41,19 @@ console.log(publicKey)
       <div className="flex pt-4 lg:pt-0 w-full items-center justify-center gap-4 dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
         <p className="text-xs">{balance} sol</p>
         <WalletMultiButtonDynamic 
-          style={{width: '8rem', padding: '0.75rem', borderRadius: '0.75rem', fontSize: '12px'}}
-          // className="!bg-red-500" 
-        >
-          {publicKey?.toString().slice(0,8)}...
+          style={{width: '8.5rem',
+            padding: '0.75rem', 
+            borderRadius: '0.5rem', 
+            fontSize: '0.75rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+          <p className={orbitron.className}>
+          {publicKey? 
+            `${publicKey.toString().slice(0,8)}...` :
+            'Connect wallet'}
+          </p>
         </WalletMultiButtonDynamic>
         <ThemeSwitcher />
       </div>

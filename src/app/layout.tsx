@@ -9,8 +9,8 @@ import Header from "@/components/ui/header";
 const orbitron = Orbitron({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Metaplex Umi Next.js",
-  description: "Metaplex template for Next.js using Umi",
+  title: "Another Earth",
+  description: "A generative collection based on solana blockchain",
 };
 
 export default function RootLayout({
