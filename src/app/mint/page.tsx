@@ -3,7 +3,7 @@
 import FetchCandyMachine  from "../../components/mpl/fetchCandyMachine";
 import MintOneButton from "../../components/mpl/mintOne";
 
-export default function Candy() {
+export default function Mint() {
   const candyMachineId = process.env.NEXT_PUBLIC_CANDYMACHINE_ID
   
   const candyMachine = FetchCandyMachine()
