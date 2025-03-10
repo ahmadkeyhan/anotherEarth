@@ -27,7 +27,7 @@ export default function RootLayout({
             <ThemeProviderWrapper>
               {/* <Header /> */}
               <Navbar />
-              <main className="flex min-h-screen flex-col items-center justify-between p-12">
+              <main className="flex min-h-screen flex-col items-center justify-between">
                 {children}
               </main>
               <div className="flex p-4 justify-center border-b border-gray-300  pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
