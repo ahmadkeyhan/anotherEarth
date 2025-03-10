@@ -44,7 +44,7 @@ export function AssetCard({
                     <Image
                         src={`${asset.content.files![0].uri?.slice(32)}`}
                         alt={asset.name}
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="-z-10 object-cover transition-transform duration-500 group-hover:scale-105"
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
@@ -70,7 +70,7 @@ export function AssetCard({
                     )}
                 </div>
                 {/* Card content */}
-                <CardContent className="p-4">
+                <CardContent className="p-4 z-20">
                     <h3 className="font-semibold truncate">{asset.name}</h3>
                 </CardContent>
                 {/* card footer */}
