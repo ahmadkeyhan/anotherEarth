@@ -3,16 +3,16 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Heart, Rocket, ExternalLink } from "lucide-react"
-// import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Heart, Rocket } from "lucide-react"
+import { Card, CardContent, CardFooter } from "./card"
+import { Button } from "./button"
 import { AssetResult } from "@metaplex-foundation/mpl-core-das/dist/src/types"
 import { cn } from "@/lib/uiUtils"
 
 interface AssetCardProps {
     asset: AssetResult
     className?: string
-    // showPrice?: boolean
+    showPrice?: boolean
     showActions?: boolean
     aspectRatio?: "square" | "portrait" | "video"
 }
@@ -20,7 +20,7 @@ interface AssetCardProps {
 export function AssetCard({
     asset, 
     className,
-    // showPrice = true,
+    showPrice = true,
     showActions = true,
     aspectRatio = "square"
 }: AssetCardProps) {
@@ -36,7 +36,7 @@ export function AssetCard({
     return (
         <Link href={`collection/${asset.name}`}>
             {/* card */}
-            <div className={cn("overflow-hidden transition-all duration-300 hover:shadow-lg group", className)}>
+            <Card className={cn("overflow-hidden transition-all duration-300 hover:shadow-lg group", className)}>
                 <div className={cn("relative", aspectRatioClass[aspectRatio])}>
                     {/* Gradient overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
@@ -53,7 +53,7 @@ export function AssetCard({
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="absolute top-2 right-2 z-20 h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            className={`absolute top-2 right-2 z-20 h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm opacity-${isLiked? '100' : '0'} group-hover:opacity-100 transition-opacity duration-300`}
                             onClick={(e) => {
                                 e.preventDefault()
                                 setIsLiked(!isLiked)
@@ -62,7 +62,7 @@ export function AssetCard({
                             <Heart
                                 className={cn(
                                 "h-4 w-4 transition-colors duration-300",
-                                isLiked ? "fill-red-500 text-red-500" : "text-foreground",
+                                isLiked ? "fill-purple-500 text-purple-500" : "text-foreground",
                                 )}
                             />
                             <span className="sr-only">Like</span>
@@ -70,23 +70,23 @@ export function AssetCard({
                     )}
                 </div>
                 {/* Card content */}
-                <div className="p-4">
+                <CardContent className="p-4">
                     <h3 className="font-semibold truncate">{asset.name}</h3>
-                </div>
+                </CardContent>
                 {/* card footer */}
-                {/* {(showPrice || showActions) && (
+                {(showPrice || showActions) && (
                     <CardFooter className="p-4 pt-0 flex justify-between items-center">
                         {showPrice && (
                             <div className="flex items-center gap-1">
                                 <Rocket className="h-4 w-4 text-primary" />
-                                <span className="font-medium">{asset.price}</span>
+                                <span className="font-medium">1 SOL</span>
                             </div>
                         )}
                         {showActions && (
                             <Button
                                 size="sm"
                                 variant="secondary"
-                                className="bg-primary/10 hover:bg-primary/20 text-primary transition-colors duration-300"
+                                className="bg-primary/10 text-primary hover:bg-gradient-to-r from-purple-500 to-blue-500 hover:text-white transition-colors duration-300"
                                 onClick={(e) => {
                                 e.preventDefault()
                                 // Handle view details action
@@ -96,8 +96,8 @@ export function AssetCard({
                             </Button>
                         )}
                     </CardFooter>
-                )} */}
-            </div>
+                )}
+            </Card>
         </Link>
     )
 
