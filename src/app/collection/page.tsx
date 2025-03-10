@@ -1,13 +1,7 @@
-"use client"
-
-import FetchAssets from "@/components/mpl/fetchAssets";
-import {AssetCard} from "@/components/ui/assetCard";
 import { Filter, Grid, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import Assets from "./assets";
 export default function Collection() {
-  const collection = FetchAssets()
-  console.log(collection)
 
   return (
     <div className="container px-4 py-8 md:px-36 md:py-12">
@@ -31,24 +25,7 @@ export default function Collection() {
           </Button>
         </div>
       </div>
-      <div className="mt-8 grid gap-6   sm:grid-cols-2 lg:grid-cols-3">
-        {collection.assets.length == 5 && collection.assets.map((asset) => (
-          <AssetCard key={asset.name} asset={asset} />
-        ))}
-      </div>
+      <Assets />
     </div>
   )
-
-  // return (
-  //   <div className="flex flex-col gap-2 items-center text-sm">
-  //     <h2 className="text-center">{`You are reading data for ${collection.collectionId.slice(0,15)}...`}</h2>
-  //     <ul className="w-full text-xs mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
-  //       {collection.assets.length == 5 && collection.assets.map((asset) => {
-  //         return (
-  //           <AssetCard key={asset.name} asset={asset} />
-  //         )
-  //       })}
-  //     </ul>
-  //   </div>
-  // );
 }
