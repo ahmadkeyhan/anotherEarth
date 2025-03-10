@@ -34,7 +34,7 @@ export function AssetCard({
     }
 
     return (
-        <Link href={`collection/${asset.name}`}>
+        <Link href={`collection/${asset.publicKey}`}>
             {/* card */}
             <Card className={cn("overflow-hidden transition-all duration-300 hover:shadow-lg group", className)}>
                 <div className={cn("relative", aspectRatioClass[aspectRatio])}>
