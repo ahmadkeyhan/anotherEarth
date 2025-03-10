@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
 import { UmiProvider } from "@/providers/umiProvider";
-import Header from "@/components/ui/header";
 import { Navbar } from "@/components/ui/navbar";
 
 const orbitron = Orbitron({ subsets: ["latin"] });
