@@ -1,6 +1,7 @@
 import { Filter, Grid, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Assets from "./assets";
+import Placeholders from "./placeholders";
 import FetchAssets from "@/components/mpl/fetchAssets";
 import { Suspense } from "react";
 
@@ -28,7 +29,7 @@ export default function Collection() {
           </Button>
         </div>
       </div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Placeholders />}>
         <Assets assets={assets} />
       </Suspense>
     </div>
