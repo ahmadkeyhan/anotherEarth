@@ -107,10 +107,14 @@ export function AssetCard({
         
             // {/* card */}
             <Card className={cn("overflow-hidden transition-all duration-300 hover:shadow-lg group", className)}>
-                <div className={cn("relative bg-slate-500", aspectRatioClass[aspectRatio])}>
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-
+                <div className={aspectRatioClass[aspectRatio]}>
+                    <Image
+                        src='/placeholder.svg'
+                        alt='placeholder image'
+                        className="-z-10 object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                     {showActions && (
                         <Button
                             variant="ghost"
@@ -149,11 +153,9 @@ export function AssetCard({
                                 size="sm"
                                 variant="secondary"
                                 className="bg-primary/10 text-primary hover:bg-gradient-to-r from-purple-500 to-blue-500 hover:text-white transition-colors duration-300"
-                                onClick={(e) => {
-                                e.preventDefault()
-                                // Handle view details action
-                                }}
+                                disabled
                             >
+                                View Details
                             </Button>
                         )}
                     </CardFooter>

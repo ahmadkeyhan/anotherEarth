@@ -166,15 +166,15 @@ export function AssetDetailCard({ asset, className }: AssetDetailCardProps) {
     <div className={cn("flex flex-col gap-4", className)}>
       <div className="overflow-hidden rounded-lg border bg-background relative group">
         {/* Main image */}
-        <div className="aspect-square bg-slate-500 relative">
-          {/* <Image
-            src={`${asset.content.files![0].uri?.slice(32)}`}
-            alt={asset.name}
+        <div className="aspect-square relative">
+          <Image
+            src='/placeholder.svg'
+            alt='place holder image'
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
-          /> */}
+          />
         </div>
       </div>
       {/* Action buttons */}
