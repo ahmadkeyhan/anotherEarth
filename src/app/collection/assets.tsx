@@ -1,14 +1,14 @@
 "use client"
 
-import FetchAssets from "@/components/mpl/fetchAssets";
 import {AssetCard} from "@/components/ui/assetCard";
+import { AssetResult } from "@metaplex-foundation/mpl-core-das/dist/src/types";
+import {use} from 'react'
 
-export default function Assets() {
-    const assets = FetchAssets()
-
+export default function Assets({ assets } : { assets: Promise<AssetResult[]>}) {
+  const allAssets = use(assets)
     return (
         <div className="mt-8 grid gap-6   sm:grid-cols-2 lg:grid-cols-3">
-        {assets.assets.map((asset) => (
+        {allAssets.map((asset) => (
           <AssetCard key={asset.name} asset={asset} />
         ))}
       </div>
