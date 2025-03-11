@@ -51,7 +51,7 @@ export function Navbar() {
       {/* Decorative gradient line */}
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
 
-      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <nav className="relative mx-auto flex max-w-7xl h-[3.75rem] sm:h-[4.5rem] items-center justify-between px-4 py-3">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2 group">
