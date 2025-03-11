@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import FetchAsset from "@/components/mpl/fetchAsset"
 import Asset from "./asset"
+import Placeholder from "./placeholder"
 import { Suspense } from "react"
 
 export default function AssetPage({ params }: { params: { id: string } }) {
@@ -17,7 +18,7 @@ export default function AssetPage({ params }: { params: { id: string } }) {
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Collection
         </Link>
-        <Suspense fallback={<p>loading</p>}>
+        <Suspense fallback={<Placeholder />}>
             <Asset asset={asset}/>
         </Suspense>
         </div>
