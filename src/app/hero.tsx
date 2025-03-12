@@ -145,7 +145,7 @@ function FloatingPaths({ position }: { position: number }) {
                 </motion.h1>
 
                 <motion.p variants={fadeInUp} custom={2} className="text-base text-muted-foreground mb-8 max-w-lg">
-                  Explore our NFT collection. Embark ok a quest to find another earth, before it's too late.
+                  {`Explore our NFT collection. Embark ok a quest to find another earth, before it's too late.`}
                 </motion.p>
 
                 <motion.div variants={fadeInUp} custom={3} className="flex flex-wrap gap-4">
