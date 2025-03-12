@@ -23,7 +23,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Collection", href: "/collection" },
   { name: "Mint", href: "/mint" },
-//   { name: "About", href: "/about" },
+  { name: "About", href: "/about" },
 ]
 
 export function Navbar() {
@@ -57,7 +57,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative flex items-center justify-center w-8 h-8">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <Rocket className="relative z-10 w-4 h-4 text-white" />
+              <Rocket className="relative z-10 w-4 h-4 text-background" />
             </div>
             <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
               ANOTHER EARTH
@@ -157,9 +157,9 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
               <div className="relative flex items-center justify-center w-8 h-8">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
-                <Rocket className="relative z-10 w-4 h-4 text-white" />
+                <Rocket className="relative z-10 w-4 h-4 text-background" />
               </div>
-              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
+              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
                 ANOTHER EARTH
               </span>
             </Link>
