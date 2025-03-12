@@ -64,8 +64,8 @@ export default function Timeline() {
                 Redefining Digital Ownership
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                We're building the future of digital collectibles with cutting-edge blockchain technology and immersive
-                experiences.
+                {`We're building the future of digital collectibles with cutting-edge blockchain technology and immersive
+                experiences.`}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button
@@ -175,7 +175,7 @@ export default function Timeline() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Road Map</h2>
-          <p className="mt-4 text-lg text-muted-foreground">A road map to find another earth before It's too late!🧑‍🚀🚀</p>
+          <p className="mt-4 text-lg text-muted-foreground">{`A road map to find another earth before It's too late!🧑‍🚀🚀`}</p>
         </motion.div>
 
         <div className="relative">
