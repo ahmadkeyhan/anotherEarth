@@ -143,13 +143,13 @@ export default function Timeline() {
               >
                 <div className="aspect-square rounded-2xl overflow-hidden border border-primary/10 bg-background/50 backdrop-blur-sm shadow-xl relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 group-hover:opacity-75 transition-opacity duration-500"></div>
-                  <Image
-                    src="/placeholder.svg"
+                  {/* <Image
+                    src="/placeholder.svg?height=600&width=600"
                     alt="NFT Collection"
                     width={600}
                     height={600}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  /> */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <div className="text-white">
                       <h3 className="font-bold text-xl">Genesis Collection</h3>
