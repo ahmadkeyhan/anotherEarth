@@ -158,9 +158,11 @@ export default function Hero() {
                         <Rocket className="h-4 w-4 text-primary" />
                         <span className="font-medium">{item.price}</span>
                       </div>
-                      <Button size="sm" variant="secondary" className="bg-primary/10 text-primary">
-                        View
-                      </Button>
+                      <Link href={`/collection/${item.id}`}>
+                        <Button size="sm" variant="secondary" className="bg-primary/10 text-primary">
+                          View
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
